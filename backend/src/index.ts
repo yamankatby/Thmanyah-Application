@@ -1,35 +1,51 @@
+import cors from "@fastify/cors";
 import Fastify from "fastify";
 
-const fastify = Fastify({
-  logger: true,
-});
+const app = Fastify({ logger: true });
 
-fastify.get("/search", async (request, reply) => {
-  const { q } = request.query as { q?: string };
-  if (!q) {
-    reply.status(400).send({ error: "Missing query parameter: q" });
-    return;
-  }
-  try {
-    const url = `https://itunes.apple.com/search?media=podcast&term=${encodeURIComponent(
-      q
-    )}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    reply.send(data);
-  } catch (error) {
-    reply.status(500).send({ error: "Failed to fetch from iTunes API" });
-  }
-});
+await app.register(cors);
 
-const start = async () => {
+type SearchQuery = { q?: string };
+
+app.get<{ Querystring: SearchQuery }>("/search", async (req, reply) => {
+  const { q } = req.query;
+  if (!q) return reply.code(400).send({ error: "Missing query parameter: q" });
+
+  const base = "https://itunes.apple.com/search";
+  const common = new URLSearchParams({
+    media: "podcast",
+    limit: "200",
+    term: q,
+  }).toString();
+  const podcastUrl = `${base}?${common}&entity=podcast`;
+  const episodeUrl = `${base}?${common}&entity=podcastEpisode`;
+
   try {
-    await fastify.listen({ port: 3000, host: "0.0.0.0" });
-    console.log("Server listening on http://localhost:3000");
+    const [podcastsRes, episodesRes] = await Promise.all([
+      fetch(podcastUrl),
+      fetch(episodeUrl),
+    ]);
+
+    if (!podcastsRes.ok || !episodesRes.ok) {
+      throw new Error("One or more iTunes API requests failed");
+    }
+
+    const [podcasts, episodes] = await Promise.all([
+      podcastsRes.json().then((res) => res.results),
+      episodesRes.json().then((res) => res.results),
+    ]);
+
+    reply.send({ podcasts, episodes });
   } catch (err) {
-    fastify.log.error(err);
-    process.exit(1);
+    req.log.error(err);
+    reply.code(500).send({ error: "Failed to fetch from iTunes API" });
   }
-};
+});
 
-start();
+try {
+  const address = await app.listen({ port: 2027, host: "0.0.0.0" });
+  app.log.info(`Server listening at ${address}`);
+} catch (err) {
+  app.log.error(err);
+  process.exit(1);
+}
