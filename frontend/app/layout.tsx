@@ -4,8 +4,8 @@ import Aside from "../components/aside";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Yaman's Assignment",
-  description: "My assignment to join Thmanyah team 🎉",
+  title: "Yaman's Podcast App",
+  description: "Built as an assignment for my application to Thmanyah.",
 };
 
 export default function RootLayout({

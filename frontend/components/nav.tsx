@@ -17,6 +17,24 @@ const Chevron = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+const More = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    stroke="currentColor"
+    strokeWidth={0}
+    className="jsx-8dd1f9521a2787d1 jsx-1598947942"
+    viewBox="0 0 24 24"
+    {...props}
+  >
+    <path fill="none" stroke="none" d="M0 0h24v24H0z" />
+    <path
+      stroke="none"
+      d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+    />
+  </svg>
+);
+
 const IconButton = ({ children }: { children: React.ReactNode }) => (
   <button className="cursor-pointer px-[5px] text-[#8A8B94] hover:text-white">
     {children}
@@ -25,7 +43,7 @@ const IconButton = ({ children }: { children: React.ReactNode }) => (
 
 export default function Nav() {
   return (
-    <nav className="sticky inset-x-0 top-0 flex items-center gap-3 px-3 py-2.5">
+    <nav className="sticky inset-x-0 top-0 flex items-center gap-2.5 px-3 py-2.5">
       <div className="flex items-center">
         <IconButton>
           <Chevron className="size-[22px]" />
@@ -39,6 +57,7 @@ export default function Nav() {
         <Button>Log in</Button>
         <Button>Sign up</Button>
       </div>
+      <More className="w-[22px] text-white" />
     </nav>
   );
 }
