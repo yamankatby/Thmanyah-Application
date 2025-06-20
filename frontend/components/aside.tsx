@@ -11,7 +11,7 @@ const america = localFont({
 
 function Item({ children, icon }: PropsWithChildren<{ icon: string }>) {
   return (
-    <li className="nav-item purple relative flex items-center gap-3 px-[22px] py-[9px] text-sm after:absolute after:inset-0 after:blur-[10px]">
+    <li className="nav-item purple relative flex cursor-pointer items-center gap-3 px-[22px] py-[9px] text-sm after:absolute after:inset-0 after:blur-[10px]">
       <img src={`/icons/${icon}.svg`} className="w-4" />
       {children}
     </li>
@@ -20,13 +20,13 @@ function Item({ children, icon }: PropsWithChildren<{ icon: string }>) {
 
 export default function Aside() {
   return (
-    <aside className="sticky top-0 hidden h-screen w-[225px] flex-col items-start border-r border-inherit bg-[#141523] md:flex">
+    <aside className="sticky top-0 hidden h-screen w-[225px] flex-col border-r border-inherit bg-[#141523] md:flex">
       <motion.img
         src="/logo.svg"
         whileTap={{ scale: 0.95 }}
-        className="mt-[18px] mb-[28px] ml-[18px] inline-block cursor-pointer"
+        className="mt-[18px] mb-[28px] ml-[18px] inline-block cursor-pointer self-start"
       />
-      <ul className="tracking-[-.5px] text-white">
+      <ul className="flex flex-col tracking-[-.5px] text-white">
         <Item icon="home">Home</Item>
         <Item icon="discover">Discover</Item>
         <span

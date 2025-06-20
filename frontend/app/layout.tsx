@@ -1,3 +1,4 @@
+import Nav from "@/components/nav";
 import type { Metadata } from "next";
 import Aside from "../components/aside";
 import "./globals.css";
@@ -16,7 +17,10 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex min-h-screen">
         <Aside />
-        <div>{children}</div>
+        <div className="relative flex-1">
+          <Nav />
+          <div>{children}</div>
+        </div>
       </body>
     </html>
   );
