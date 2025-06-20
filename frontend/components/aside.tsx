@@ -11,16 +11,8 @@ const america = localFont({
 
 function Item({ children, icon }: PropsWithChildren<{ icon: string }>) {
   return (
-    <li
-      className="px-[22px] py-[9px] text-sm flex items-center gap-3 hover:text-red-500"
-      style={
-        {
-          // background:
-          //   "radial-gradient(50% 25% at 0% 50%,#3ADEE633 0%,rgba(19,241,255,0)100%)!important",
-        }
-      }
-    >
-      <img src={`/icons/${icon}.svg`} className="w-[16px]" />
+    <li className="nav-item purple relative flex items-center gap-3 px-[22px] py-[9px] text-sm after:absolute after:inset-0 after:blur-[10px]">
+      <img src={`/icons/${icon}.svg`} className="w-4" />
       {children}
     </li>
   );
@@ -28,17 +20,17 @@ function Item({ children, icon }: PropsWithChildren<{ icon: string }>) {
 
 export default function Aside() {
   return (
-    <aside className="w-[225px] border-r border-inherit hidden md:block bg-[#141523]">
+    <aside className="sticky top-0 hidden h-screen w-[225px] flex-col items-start border-r border-inherit bg-[#141523] md:flex">
       <motion.img
         src="/logo.svg"
         whileTap={{ scale: 0.95 }}
-        className="mt-[18px] ml-[18px] mb-[28px] inline-block cursor-pointer"
+        className="mt-[18px] mb-[28px] ml-[18px] inline-block cursor-pointer"
       />
-      <ul className="text-white tracking-[-.5px]">
+      <ul className="tracking-[-.5px] text-white">
         <Item icon="home">Home</Item>
         <Item icon="discover">Discover</Item>
         <span
-          className={`uppercase ${america.className} text-xs ml-[18px] mt-[17px] mb-[3px] inline-block text-[#A3A3A8]`}
+          className={`uppercase ${america.className} mt-[17px] mb-[3px] ml-[18px] inline-block text-xs text-[#A3A3A8]`}
         >
           Your Stuff
         </span>
@@ -46,6 +38,9 @@ export default function Aside() {
         <Item icon="my-podcasts">My Podcasts</Item>
         <Item icon="recents">Recents</Item>
       </ul>
+      <p className="mt-auto mb-[28px] px-[18px] text-xs text-[#777]">
+        Built as an assignment for my application to Thmanyah.
+      </p>
     </aside>
   );
 }
