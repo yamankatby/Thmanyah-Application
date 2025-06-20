@@ -1,3 +1,4 @@
+import { useDominantColor } from "@/hooks/useDominantColor";
 import Image from "next/image";
 
 export interface PodcastItem {
@@ -13,6 +14,9 @@ export interface PodcastItem {
 
 export default function PodcastCard({ item }: { item: PodcastItem }) {
   const img = item.artworkUrl600 || item.artworkUrl100 || item.artworkUrl60;
+
+  const dominantColor = useDominantColor(img || "");
+
   return (
     <li className="flex shrink-0 flex-col items-center gap-2">
       {img && (
@@ -28,7 +32,12 @@ export default function PodcastCard({ item }: { item: PodcastItem }) {
         {item.collectionName}
       </h3>
       {item.artistName && (
-        <p className="text-center text-sm text-gray-500">{item.artistName}</p>
+        <p
+          className="text-center text-sm text-gray-500"
+          style={{ color: dominantColor ?? "inherit" }}
+        >
+          {item.artistName}
+        </p>
       )}
     </li>
   );

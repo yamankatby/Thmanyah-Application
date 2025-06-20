@@ -2,6 +2,7 @@ import { useSearchParams } from "next/navigation";
 import { ScrollArea } from "radix-ui";
 import { useMemo } from "react";
 import PodcastCard, { PodcastItem } from "./podcast-card";
+import Section from "./section";
 
 export default function PodcastList({ items }: { items: PodcastItem[] }) {
   const searchParams = useSearchParams();
@@ -10,10 +11,7 @@ export default function PodcastList({ items }: { items: PodcastItem[] }) {
   if (items.length === 0) return null;
 
   return (
-    <section className="relative">
-      <h2 className="sticky top-[52px] z-40 border-b border-[#2e2e38] bg-[#161727fa] px-5 py-2.5 text-white">
-        Top podcasts for {query}
-      </h2>
+    <Section title={`Top podcasts for ${query}`}>
       <ScrollArea.Root
         className="group w-screen md:w-[calc(100vw-226px)]"
         type="always"
@@ -36,6 +34,6 @@ export default function PodcastList({ items }: { items: PodcastItem[] }) {
           />
         </ScrollArea.Scrollbar>
       </ScrollArea.Root>
-    </section>
+    </Section>
   );
 }
