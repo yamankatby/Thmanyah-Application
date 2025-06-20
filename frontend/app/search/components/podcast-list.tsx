@@ -1,4 +1,4 @@
-import PodcastCard, { PodcastItem } from "./PodcastCard";
+import PodcastCard, { PodcastItem } from "./podcast-card";
 
 export default function PodcastList({ items }: { items: PodcastItem[] }) {
   if (items.length === 0) return null;

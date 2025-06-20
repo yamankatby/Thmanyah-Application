@@ -1,4 +1,4 @@
-import SearchClient from "./SearchClient";
+import SearchClient from "./client";
 
 export default async function Page({
   searchParams,

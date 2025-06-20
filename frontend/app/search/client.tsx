@@ -4,10 +4,10 @@ import debounce from "lodash.debounce";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import useSWR from "swr";
-import EpisodeList from "./components/EpisodeList";
-import { PodcastItem } from "./components/PodcastCard";
-import PodcastList from "./components/PodcastList";
-import SearchBar from "./components/SearchBar";
+import EpisodeList from "./components/episode-list";
+import { PodcastItem } from "./components/podcast-card";
+import PodcastList from "./components/podcast-list";
+import SearchBar from "./components/search-bar";
 
 interface ApiResponse {
   podcasts: PodcastItem[];

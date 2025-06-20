@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PodcastItem } from "./PodcastCard";
+import { PodcastItem } from "./podcast-card";
 
 export default function EpisodeCard({ item }: { item: PodcastItem }) {
   const img = item.artworkUrl100 || item.artworkUrl60 || item.artworkUrl600;
