@@ -1,4 +1,5 @@
 import Button from "./button";
+import Logo from "./logo";
 import Search from "./search";
 
 const Chevron = (props: React.SVGProps<SVGSVGElement>) => (
@@ -43,7 +44,10 @@ const IconButton = ({ children }: { children: React.ReactNode }) => (
 
 export default function Nav() {
   return (
-    <nav className="sticky inset-x-0 top-0 z-50 flex items-center gap-2.5 bg-[#161727fa] px-3 py-2.5">
+    <nav className="nav sticky inset-x-0 top-0 z-50 flex items-center gap-2.5 bg-[#161727fa] px-3 py-2.5 backdrop-blur-[5px]">
+      <span className="md:hidden">
+        <Logo size="sm" />
+      </span>
       <div className="flex items-center">
         <IconButton>
           <Chevron className="size-[22px]" />
@@ -53,7 +57,7 @@ export default function Nav() {
         </IconButton>
       </div>
       <Search />
-      <div className="flex items-center gap-1">
+      <div className="hidden items-center gap-1 md:flex">
         <Button>Log in</Button>
         <Button>Sign up</Button>
       </div>

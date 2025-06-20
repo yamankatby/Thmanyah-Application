@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "motion/react";
 import localFont from "next/font/local";
 import { PropsWithChildren } from "react";
+import Logo from "./logo";
 
 const america = localFont({
   src: "../public/fonts/GTAmerica-ExtendedBold.woff2",
@@ -21,11 +21,9 @@ function Item({ children, icon }: PropsWithChildren<{ icon: string }>) {
 export default function Aside() {
   return (
     <aside className="sticky top-0 hidden h-screen w-[225px] flex-col border-r border-inherit bg-[#141523] md:flex">
-      <motion.img
-        src="/logo.svg"
-        whileTap={{ scale: 0.95 }}
-        className="mt-[18px] mb-[28px] ml-[18px] inline-block cursor-pointer self-start"
-      />
+      <span className="mt-[18px] mb-[28px] ml-[18px] inline-block self-start">
+        <Logo />
+      </span>
       <ul className="flex flex-col tracking-[-.5px] text-white">
         <Item icon="home">Home</Item>
         <Item icon="discover">Discover</Item>

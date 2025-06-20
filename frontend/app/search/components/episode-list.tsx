@@ -12,8 +12,8 @@ export default function EpisodeList({ items }: { items: PodcastItem[] }) {
 
   return (
     <Section title={`Top episodes for ${query}`}>
-      <ul className="mt-4 grid grid-cols-1 gap-4 px-5 md:grid-cols-3">
-        {items.map((i) => (
+      <ul className="mt-2 grid grid-cols-1 gap-x-5 px-5 md:grid-cols-3">
+        {items.slice(0, 18).map((i) => (
           <EpisodeCard key={i.trackId} item={i} />
         ))}
       </ul>
