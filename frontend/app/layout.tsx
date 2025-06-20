@@ -17,9 +17,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex min-h-screen">
         <Aside />
-        <div className="relative flex-1">
+        <div className="flex-1">
           <Nav />
-          <div>{children}</div>
+          {children}
         </div>
       </body>
     </html>

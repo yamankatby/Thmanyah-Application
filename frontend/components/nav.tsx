@@ -43,7 +43,7 @@ const IconButton = ({ children }: { children: React.ReactNode }) => (
 
 export default function Nav() {
   return (
-    <nav className="sticky inset-x-0 top-0 flex items-center gap-2.5 px-3 py-2.5">
+    <nav className="sticky inset-x-0 top-0 z-50 flex items-center gap-2.5 bg-[#161727fa] px-3 py-2.5">
       <div className="flex items-center">
         <IconButton>
           <Chevron className="size-[22px]" />

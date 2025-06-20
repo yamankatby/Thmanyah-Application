@@ -14,17 +14,17 @@ export interface PodcastItem {
 export default function PodcastCard({ item }: { item: PodcastItem }) {
   const img = item.artworkUrl600 || item.artworkUrl100 || item.artworkUrl60;
   return (
-    <li className="flex w-40 flex-col items-center gap-2">
+    <li className="flex shrink-0 flex-col items-center gap-2">
       {img && (
         <Image
           src={img}
           alt={item.collectionName || "podcast"}
-          width={216}
-          height={216}
-          className="rounded-lg"
+          width={200}
+          height={200}
+          className="rounded-sm"
         />
       )}
-      <h3 className="text-center font-semibold leading-snug">
+      <h3 className="text-center leading-snug font-semibold text-white">
         {item.collectionName}
       </h3>
       {item.artistName && (

@@ -32,14 +32,21 @@ export default function SearchClient() {
   const episodes = query && data?.episodes ? data.episodes : [];
 
   return (
-    <main className="mx-auto max-w-3xl p-6">
-      {!query && <p className="mt-6 text-gray-500">Start typing to search…</p>}
+    <main>
+      {!query && (
+        <p className="mt-19 text-center text-[15px] text-white/70">
+          Type in a search term to start.
+        </p>
+      )}
       {query &&
         !isLoading &&
         podcasts.length === 0 &&
         episodes.length === 0 && (
-          <p className="mt-6 text-gray-500">No results.</p>
+          <p className="mt-19 text-center text-[15px] text-white/70">
+            Type in a search term to start.
+          </p>
         )}
+
       <PodcastList items={podcasts} />
       <EpisodeList items={episodes} />
     </main>

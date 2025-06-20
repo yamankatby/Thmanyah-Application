@@ -14,7 +14,7 @@ app.get<{ Querystring: SearchQuery }>("/search", async (req, reply) => {
   const base = "https://itunes.apple.com/search";
   const common = new URLSearchParams({
     media: "podcast",
-    limit: "200",
+    limit: "24",
     term: q,
   }).toString();
   const podcastUrl = `${base}?${common}&entity=podcast`;
