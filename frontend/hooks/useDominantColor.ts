@@ -1,5 +1,6 @@
 import { colord, extend, RgbColor } from "colord";
 import a11yPlugin from "colord/plugins/a11y";
+// @ts-expect-error ColorThief does not have types
 import ColorThief from "colorthief";
 import { useEffect, useState } from "react";
 
@@ -17,7 +18,7 @@ export const useDominantColor = (src: string): string | null => {
 
     img.onload = () => {
       try {
-        const [r, g, b] = new (ColorThief as any)().getColor(img) as [
+        const [r, g, b] = new ColorThief().getColor(img) as [
           number,
           number,
           number,

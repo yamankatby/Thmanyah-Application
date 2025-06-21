@@ -34,7 +34,7 @@ export default function Nav() {
           <Dropdown.Item>Settings</Dropdown.Item>
           <Dropdown.Separator />
           <Dropdown.Item>About</Dropdown.Item>
-          <Dropdown.Item>What's new</Dropdown.Item>
+          <Dropdown.Item>What&apos;s new</Dropdown.Item>
           <Dropdown.Item>Podcaster FAQ</Dropdown.Item>
           <Dropdown.Item>Privacy</Dropdown.Item>
           <Dropdown.Item>Terms</Dropdown.Item>
