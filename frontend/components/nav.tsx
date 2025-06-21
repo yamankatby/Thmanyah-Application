@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Button from "./button";
 import Dropdown from "./dropdown";
 import Chevron from "./icons/chevron";
@@ -24,7 +25,9 @@ export default function Nav() {
           <Chevron className="size-[22px] rotate-180" />
         </IconButton>
       </div>
-      <Search />
+      <Suspense>
+        <Search />
+      </Suspense>
       <div className="flex items-center gap-1">
         <div className="hidden items-center gap-1 md:flex">
           <Button>Log in</Button>
