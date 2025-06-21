@@ -22,7 +22,7 @@ export default function SearchResults() {
 
   const { data, isLoading } = useSWR<ApiResponse>(
     debouncedQuery
-      ? `http://127.0.0.1:2027/search?q=${encodeURIComponent(debouncedQuery)}`
+      ? `https://backend-1028443614154.europe-central2.run.app/search?q=${encodeURIComponent(debouncedQuery)}`
       : null,
     fetcher,
     debouncedQuery ? { keepPreviousData: true } : undefined,
