@@ -25,7 +25,7 @@ export default function Nav() {
           <Chevron className="size-[22px] rotate-180" />
         </IconButton>
       </div>
-      <Suspense>
+      <Suspense fallback={<div className="flex-1" />}>
         <Search />
       </Suspense>
       <div className="flex items-center gap-1">
