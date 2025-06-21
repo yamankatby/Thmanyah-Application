@@ -7,11 +7,13 @@ const CACHE_TTL_HOURS = 12;
 
 const app = Fastify({ logger: true });
 await app.register(cors);
+
 await app.register(fastifyPostgres, {
   connectionString: process.env.DATABASE_URL,
 });
 
-await app.pg.query(`
+try {
+  await app.pg.query(`
   CREATE TABLE IF NOT EXISTS search_cache (
     query       TEXT PRIMARY KEY,
     podcasts    JSONB NOT NULL,
@@ -19,6 +21,9 @@ await app.pg.query(`
     updated_at  TIMESTAMPTZ NOT NULL DEFAULT now()
   );
 `);
+} catch (err) {
+  console.error("Failed to create search_cache table:", err);
+}
 
 type SearchQuery = { q?: string };
 
