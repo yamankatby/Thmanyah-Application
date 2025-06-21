@@ -1,3 +1,5 @@
+import Dropdown from "@/components/dropdown";
+import Chevron from "@/components/icons/chevron";
 import { useSearchParams } from "next/navigation";
 import { ScrollArea } from "radix-ui";
 import { useMemo } from "react";
@@ -11,7 +13,30 @@ export default function PodcastList({ items }: { items: PodcastItem[] }) {
   if (items.length === 0) return null;
 
   return (
-    <Section title={`Top podcasts for ${query}`}>
+    <Section
+      title={`Top podcasts for ${query}`}
+      controls={
+        <div className="flex items-center gap-1">
+          <div className="flex items-center">
+            {[
+              <Chevron key="1" className="size-[18px]" />,
+              <Chevron key="2" className="size-[18px] rotate-180" />,
+            ].map((icon, index) => (
+              <button
+                key={index}
+                className="flex size-[30px] cursor-pointer items-center justify-center rounded-full text-white opacity-70 hover:bg-[#21223b] hover:opacity-100"
+              >
+                {icon}
+              </button>
+            ))}
+          </div>
+
+          <Dropdown>
+            <Dropdown.Item>Switch layout to Grid</Dropdown.Item>
+          </Dropdown>
+        </div>
+      }
+    >
       <ScrollArea.Root
         className="group w-screen md:w-[calc(100vw-226px)]"
         type="always"
