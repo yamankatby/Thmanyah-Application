@@ -9,14 +9,14 @@ const app = Fastify({ logger: true });
 await app.register(cors);
 
 await app.register(fastifyPostgres, {
-  host: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
+  connectionString:
+    `postgresql://${process.env.DB_USER}:` +
+    `${encodeURIComponent(process.env.DB_PASS!)}` +
+    `@localhost/${process.env.DB_NAME}` +
+    `?host=/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
 });
 
-try {
-  await app.pg.query(`
+await app.pg.query(`
   CREATE TABLE IF NOT EXISTS search_cache (
     query       TEXT PRIMARY KEY,
     podcasts    JSONB NOT NULL,
@@ -24,9 +24,6 @@ try {
     updated_at  TIMESTAMPTZ NOT NULL DEFAULT now()
   );
 `);
-} catch (err) {
-  console.error("Failed to create search_cache table:", err);
-}
 
 type SearchQuery = { q?: string };
 
