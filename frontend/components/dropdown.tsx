@@ -27,7 +27,7 @@ export default function Dropdown({ children }: PropsWithChildren) {
           className="inline-flex size-[28px] cursor-pointer items-center justify-center rounded-full outline-none"
           aria-label="Update dimensions"
         >
-          <More className="w-[22px] text-white" />
+          <More className="w-[22px] text-inherit" />
         </button>
       </Popover.Trigger>
       <Popover.Portal>

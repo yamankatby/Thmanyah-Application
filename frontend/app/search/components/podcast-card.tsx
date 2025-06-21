@@ -23,8 +23,8 @@ export default function PodcastCard({ item }: { item: PodcastItem }) {
         <Image
           src={img}
           alt={item.collectionName || "podcast"}
-          width={200}
-          height={200}
+          width={216}
+          height={216}
           className="rounded-sm"
         />
       )}

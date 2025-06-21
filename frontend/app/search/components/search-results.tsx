@@ -47,8 +47,10 @@ export default function SearchResults() {
           </p>
         )}
 
-      <PodcastList items={podcasts} />
-      <EpisodeList items={episodes} />
+      <div className="flex flex-col gap-[5px]">
+        <PodcastList items={podcasts} />
+        <EpisodeList items={episodes} />
+      </div>
     </>
   );
 }

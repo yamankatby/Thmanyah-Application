@@ -16,24 +16,24 @@ export default function PodcastList({ items }: { items: PodcastItem[] }) {
     <Section
       title={`Top podcasts for ${query}`}
       controls={
-        <div className="flex items-center gap-1">
-          <div className="flex items-center">
-            {[
-              <Chevron key="1" className="size-[18px]" />,
-              <Chevron key="2" className="size-[18px] rotate-180" />,
-            ].map((icon, index) => (
-              <button
-                key={index}
-                className="flex size-[30px] cursor-pointer items-center justify-center rounded-full text-white opacity-70 hover:bg-[#21223b] hover:opacity-100"
-              >
-                {icon}
-              </button>
-            ))}
-          </div>
+        <div className="flex items-center">
+          {[
+            <Chevron key="1" className="size-[18px]" />,
+            <Chevron key="2" className="size-[18px] rotate-180" />,
+          ].map((icon, index) => (
+            <button
+              key={index}
+              className="flex size-[30px] cursor-pointer items-center justify-center rounded-full text-white opacity-70 hover:bg-[#21223b] hover:opacity-100"
+            >
+              {icon}
+            </button>
+          ))}
 
-          <Dropdown>
-            <Dropdown.Item>Switch layout to Grid</Dropdown.Item>
-          </Dropdown>
+          <div className="text-white">
+            <Dropdown>
+              <Dropdown.Item>Switch layout to Grid</Dropdown.Item>
+            </Dropdown>
+          </div>
         </div>
       }
     >
@@ -42,13 +42,13 @@ export default function PodcastList({ items }: { items: PodcastItem[] }) {
         type="always"
       >
         <ScrollArea.Viewport>
-          <ul className="mt-4 flex gap-6 px-5">
+          <ul className="mt-4 flex gap-[15px] px-5">
             {items.map((i) => (
               <PodcastCard key={i.collectionId} item={i} />
             ))}
           </ul>
         </ScrollArea.Viewport>
-        <div className="h-5" />
+        <div className="h-7" />
         <ScrollArea.Scrollbar
           className="mx-5 flex h-0.5 touch-none flex-col bg-[#9b9ca11a] transition-all select-none group-hover:h-2"
           orientation="horizontal"

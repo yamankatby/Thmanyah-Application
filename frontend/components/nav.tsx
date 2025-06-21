@@ -33,18 +33,20 @@ export default function Nav() {
           <Button>Log in</Button>
           <Button>Sign up</Button>
         </div>
-        <Dropdown>
-          <Dropdown.Item>Settings</Dropdown.Item>
-          <Dropdown.Separator />
-          <Dropdown.Item>About</Dropdown.Item>
-          <Dropdown.Item>What&apos;s new</Dropdown.Item>
-          <Dropdown.Item>Podcaster FAQ</Dropdown.Item>
-          <Dropdown.Item>Privacy</Dropdown.Item>
-          <Dropdown.Item>Terms</Dropdown.Item>
-          <Dropdown.Separator />
-          <Dropdown.Item>Contact & Feedback</Dropdown.Item>
-          <Dropdown.Item>Clear Data...</Dropdown.Item>
-        </Dropdown>
+        <div className="text-white">
+          <Dropdown>
+            <Dropdown.Item>Settings</Dropdown.Item>
+            <Dropdown.Separator />
+            <Dropdown.Item>About</Dropdown.Item>
+            <Dropdown.Item>What&apos;s new</Dropdown.Item>
+            <Dropdown.Item>Podcaster FAQ</Dropdown.Item>
+            <Dropdown.Item>Privacy</Dropdown.Item>
+            <Dropdown.Item>Terms</Dropdown.Item>
+            <Dropdown.Separator />
+            <Dropdown.Item>Contact & Feedback</Dropdown.Item>
+            <Dropdown.Item>Clear Data...</Dropdown.Item>
+          </Dropdown>
+        </div>
       </div>
     </nav>
   );

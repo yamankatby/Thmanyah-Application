@@ -8,8 +8,8 @@ export default function EpisodeCard({ item }: { item: PodcastItem }) {
   const dominantColor = useDominantColor(img || "");
 
   return (
-    <li className="border-b border-[#23222A] pb-1">
-      <div className="flex items-center gap-4 rounded-sm p-1.5 hover:bg-black/40">
+    <li className="mb-1 border-b border-[#23222A] pb-1">
+      <div className="flex items-center gap-2 rounded-sm p-0.5 hover:bg-black/40">
         {img && (
           <Image
             src={img}
@@ -32,14 +32,16 @@ export default function EpisodeCard({ item }: { item: PodcastItem }) {
             </p>
           )}
         </div>
-        <Dropdown>
-          <Dropdown.Item>Add to my Queue</Dropdown.Item>
-          <Dropdown.Separator />
-          <Dropdown.Item>Go to episode</Dropdown.Item>
-          <Dropdown.Item>Go to podcast</Dropdown.Item>
-          <Dropdown.Separator />
-          <Dropdown.Item>Download</Dropdown.Item>
-        </Dropdown>
+        <div className="text-[#50515D]">
+          <Dropdown>
+            <Dropdown.Item>Add to my Queue</Dropdown.Item>
+            <Dropdown.Separator />
+            <Dropdown.Item>Go to episode</Dropdown.Item>
+            <Dropdown.Item>Go to podcast</Dropdown.Item>
+            <Dropdown.Separator />
+            <Dropdown.Item>Download</Dropdown.Item>
+          </Dropdown>
+        </div>
       </div>
     </li>
   );
