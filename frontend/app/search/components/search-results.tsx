@@ -47,7 +47,7 @@ export default function SearchResults() {
           </p>
         )}
 
-      <div className="flex flex-col gap-[5px]">
+      <div className="flex flex-col gap-[5px] pb-[90px]">
         <PodcastList items={podcasts} />
         <EpisodeList items={episodes} />
       </div>

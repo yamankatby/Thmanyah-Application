@@ -9,7 +9,7 @@ export default function EpisodeCard({ item }: { item: PodcastItem }) {
 
   return (
     <li className="mb-1 border-b border-[#23222A] pb-1">
-      <div className="flex items-center gap-2 rounded-sm p-0.5 hover:bg-black/40">
+      <div className="flex items-center gap-2 rounded-sm py-0.5 pr-0.5 hover:bg-black/40">
         {img && (
           <Image
             src={img}
