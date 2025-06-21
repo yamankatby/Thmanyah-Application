@@ -43,7 +43,7 @@ app.get<{ Querystring: SearchQuery }>("/search", async (req, reply) => {
 });
 
 try {
-  const address = await app.listen({ port: 2027, host: "0.0.0.0" });
+  const address = await app.listen({ port: 8080, host: "0.0.0.0" });
   app.log.info(`Server listening at ${address}`);
 } catch (err) {
   app.log.error(err);

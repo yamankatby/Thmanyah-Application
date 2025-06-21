@@ -20,7 +20,7 @@ RUN npm run build
 RUN npm prune --production
 
 # Expose port (assuming default Fastify port)
-EXPOSE 2027
+EXPOSE 8080
 
 # Start the application
 CMD ["npm", "start"]
