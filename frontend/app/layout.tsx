@@ -2,6 +2,7 @@ import Nav from "@/components/nav";
 import type { Metadata } from "next";
 import Aside from "../components/aside";
 import "./globals.css";
+import ShamelessAd from "./search/components/shameless-ad";
 
 export const metadata: Metadata = {
   title: "Yaman's Podcast App",
@@ -21,6 +22,7 @@ export default function RootLayout({
           <Nav />
           {children}
         </div>
+        <ShamelessAd />
       </body>
     </html>
   );
