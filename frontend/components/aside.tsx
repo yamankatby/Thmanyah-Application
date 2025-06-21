@@ -11,7 +11,7 @@ const america = localFont({
 
 function Item({ children, icon }: PropsWithChildren<{ icon: string }>) {
   return (
-    <li className="nav-item purple relative flex cursor-pointer items-center gap-3 px-[22px] py-[9px] text-sm after:absolute after:inset-0 after:blur-[10px]">
+    <li className="nav-item purple relative flex cursor-pointer items-center gap-3 px-[22px] py-[9px] text-sm font-medium tracking-[-.5px] after:absolute after:inset-0 after:blur-[10px]">
       <img src={`/icons/${icon}.svg`} className="w-4" />
       {children}
     </li>
@@ -24,11 +24,11 @@ export default function Aside() {
       <span className="mt-[18px] mb-[28px] ml-[18px] inline-block self-start">
         <Logo />
       </span>
-      <ul className="flex flex-col tracking-[-.5px] text-white">
+      <ul className="flex flex-col text-white">
         <Item icon="home">Home</Item>
         <Item icon="discover">Discover</Item>
         <span
-          className={`uppercase ${america.className} mt-[17px] mb-[3px] ml-[18px] inline-block text-xs text-[#A3A3A8]`}
+          className={`uppercase ${america.className} mt-[17px] mb-[2px] ml-[18px] inline-block text-xs text-[#A3A3A8]`}
         >
           Your Stuff
         </span>

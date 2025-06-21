@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex min-h-screen">
+      <body className="flex min-h-screen antialiased">
         <Aside />
         <div className="flex-1">
           <Nav />

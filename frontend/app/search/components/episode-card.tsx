@@ -19,7 +19,9 @@ export default function EpisodeCard({ item }: { item: PodcastItem }) {
           />
         )}
         <div className="flex min-w-0 flex-1 flex-col justify-center gap-0.5">
-          <h3 className="truncate text-xs text-white">{item.trackName}</h3>
+          <h3 className="cursor-pointer truncate text-xs text-white hover:underline">
+            {item.trackName}
+          </h3>
           {item.collectionName && (
             <p
               className="truncate text-xs"

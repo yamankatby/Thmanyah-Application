@@ -44,7 +44,7 @@ const IconButton = ({ children }: { children: React.ReactNode }) => (
 
 export default function Nav() {
   return (
-    <nav className="nav sticky inset-x-0 top-0 z-50 flex items-center gap-2.5 bg-[#161727fa] px-3 py-2.5 backdrop-blur-[5px]">
+    <nav className="nav sticky inset-x-0 top-0 z-50 flex items-center gap-2.5 bg-[#161727fa] p-2.5 backdrop-blur-[5px]">
       <span className="md:hidden">
         <Logo size="sm" />
       </span>

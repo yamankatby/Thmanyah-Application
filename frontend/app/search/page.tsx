@@ -34,7 +34,7 @@ export default function SearchClient() {
   return (
     <main>
       {!query && (
-        <p className="mt-19 text-center text-[15px] text-white/70">
+        <p className="mt-19 text-center tracking-[-.5px] text-white/70">
           Type in a search term to start.
         </p>
       )}
@@ -42,7 +42,7 @@ export default function SearchClient() {
         !isLoading &&
         podcasts.length === 0 &&
         episodes.length === 0 && (
-          <p className="mt-19 text-center text-[15px] text-white/70">
+          <p className="mt-19 text-center tracking-[-.5px] text-white/70">
             Type in a search term to start.
           </p>
         )}
