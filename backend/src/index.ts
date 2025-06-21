@@ -9,7 +9,10 @@ const app = Fastify({ logger: true });
 await app.register(cors);
 
 await app.register(fastifyPostgres, {
-  connectionString: process.env.DATABASE_URL,
+  host: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
 });
 
 try {
