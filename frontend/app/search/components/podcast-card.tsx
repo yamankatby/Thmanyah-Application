@@ -18,21 +18,28 @@ export default function PodcastCard({ item }: { item: PodcastItem }) {
   const dominantColor = useDominantColor(img || "");
 
   return (
-    <li className="flex shrink-0 cursor-pointer flex-col">
+    <li className="flex w-[216px] shrink-0 cursor-pointer flex-col">
       {img && (
         <Image
           src={img}
           alt={item.collectionName || "podcast"}
           width={216}
           height={216}
-          className="rounded-sm"
+          className="h-full w-full rounded-sm object-cover"
         />
       )}
-      <h3 className="mt-1 text-sm text-white hover:underline">
+      <h3
+        className="mt-1 truncate overflow-hidden text-sm text-white hover:underline"
+        title={item.collectionName || ""}
+      >
         {item.collectionName}
       </h3>
       {item.artistName && (
-        <p className="text-xs" style={{ color: dominantColor ?? "inherit" }}>
+        <p
+          className="truncate overflow-hidden text-xs"
+          style={{ color: dominantColor ?? "inherit" }}
+          title={item.artistName}
+        >
           {item.artistName}
         </p>
       )}
