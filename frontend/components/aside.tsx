@@ -1,6 +1,7 @@
 "use client";
 
 import localFont from "next/font/local";
+import Image from "next/image";
 import { PropsWithChildren } from "react";
 import Logo from "./logo";
 
@@ -12,7 +13,12 @@ const america = localFont({
 function Item({ children, icon }: PropsWithChildren<{ icon: string }>) {
   return (
     <li className="nav-item purple relative flex cursor-pointer items-center gap-3 px-[22px] py-[9px] text-sm font-medium tracking-[-.5px] after:absolute after:inset-0 after:blur-[10px]">
-      <img src={`/icons/${icon}.svg`} className="w-4" />
+      <Image
+        src={`/icons/${icon}.svg`}
+        height={16}
+        width={16}
+        alt="podbay.fm Logo"
+      />
       {children}
     </li>
   );
@@ -41,7 +47,7 @@ export default function Aside() {
         <Item icon="recents">Recents</Item>
       </ul>
       <div className="mt-auto mb-[28px] flex flex-col gap-[3px] px-[18px] text-xs text-[#777]">
-        <p>Thmanyah's Assignment.</p>
+        <p>Thmanyah&apos;s Assignment.</p>
         <div className="flex items-center gap-2">
           <a
             href={REFERENCE_URL}
